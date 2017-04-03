@@ -1,0 +1,11 @@
+{% extends 'page.html' %}
+
+{% block content %}
+    <p>Balance: {{ user.profile.balance }}</p>
+
+    <form action="{% url 'spend' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn" type="submit" value="Confirm" />
+    </form>
+{% endblock %}

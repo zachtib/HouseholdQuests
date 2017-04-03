@@ -1,0 +1,17 @@
+{% extends 'page.html' %}
+
+{% block content %}
+    <h1>Mark Complete</h1>
+
+    <div>
+        <h3>{{ quest.template.name }}</h3>
+        <p>Reward: {{ quest.template.reward }}</p>
+        <p>Date: {{ quest.date }}</p>
+        <p>Completed: {{ quest.completed }}</p>
+
+    <form action="{% url 'complete' quest.id %}" method="post">
+        {% csrf_token %}
+        <input class="btn" type="submit" value="Confirm" />
+    </form>
+    </div>
+{% endblock %}
